@@ -28,7 +28,7 @@ cd /opt/katana || exit
 pip3 install -r requirements.txt
 cat > /usr/bin/katana <<EOF
 #!/bin/bash -e
-cd /opt/katana
+[[ -s katanacli.py ]] || cd /opt/katana
 sudo python3 ./katanacli.py "\$@"
 EOF
 chmod 0755 /usr/bin/katana
