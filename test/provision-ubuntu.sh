@@ -26,6 +26,8 @@ apt-get install -y python3-pip git jq openjdk-17-jdk-headless nginx
 systemctl enable nginx
 systemctl start nginx
 
+mkdir -p /etc/samurai.d/{certs,applications}/ /opt/katana
+
 wget $(curl -s https://api.github.com/repos/FiloSottile/mkcert/releases/latest | jq -r ".assets[] | select(.name | test(\"linux-amd64\")) | .browser_download_url") -O mkcert
 chmod +x ./mkcert
 mv ./mkcert /usr/local/bin/mkcert
@@ -35,7 +37,6 @@ cp /etc/samurai.d/certs/rootCACert.pem /etc/ssl/certs
 update-ca-certificates
 openssl req -new -newkey rsa:4096 -nodes -keyout /etc/samurai.d/certs/katana.test.key -out /etc/samurai.d/certs/katana.test.csr -subj "/C=US/ST=Hacking/L=Springfield/O=SamuraiWTF/CN=katana.test"
 
-mkdir -p /etc/samurai.d/{certs,applications}/ /opt/katana
 cd /opt/katana || exit
 pip3 install -r requirements.txt
 cat > /usr/bin/katana <<EOF
