@@ -27,7 +27,7 @@ mkdir -p /etc/samurai.d/{certs,applications}/ /opt/katana
 cd /opt/katana || exit
 pip3 install -r requirements.txt
 cat > /usr/bin/katana <<EOF
-#!/usr/bin/env bash -e
+#!/bin/bash -e
 cd /opt/katana
 sudo python3 ./katanacli.py "\$@"
 EOF
