@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash -e
 
 yum install -y yum-utils
 
@@ -25,7 +25,6 @@ cp /etc/samurai.d/certs/rootCACert.pem /etc/pki/ca-trust/source/anchors/
 update-ca-trust
 openssl req -new -newkey rsa:4096 -nodes -keyout /etc/samurai.d/certs/katana.test.key -out /etc/samurai.d/certs/katana.test.csr -subj "/C=US/ST=Hacking/L=Springfield/O=SamuraiWTF/CN=katana.test"
 
-cd /opt/katana || exit
 pip3 install -r requirements.txt
 cat > /usr/bin/katana <<EOF
 #!/bin/bash -e
