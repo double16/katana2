@@ -5,5 +5,5 @@ set -e
 katana install katana
 katana start katana
 
-curl --fail --retry 5 http://localhost:8087/
-curl --fail --retry 5 -k https://katana.test:8443/
+curl --fail --retry 5 --retry-all-errors http://localhost:8087/
+curl --fail --retry 5 --retry-all-errors -k https://katana.test:8443/
