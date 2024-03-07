@@ -17,6 +17,14 @@ if ! command -v docker; then
   apt-get update
   apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
+  if [[ ! -x /usr/bin/docker-compose ]]; then
+    cat <<EOF > /usr/bin/docker-compose
+#!/bin/bash
+exec docker compose "$@"
+EOF
+    chmod +x /usr/bin/docker-compose
+  fi
+
   systemctl enable docker
   systemctl start docker
   usermod -a -G docker vagrant

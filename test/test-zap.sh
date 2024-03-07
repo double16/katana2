@@ -2,8 +2,8 @@
 
 set -e
 
-zaproxy -cmd -version && exit 0
+/opt/samurai/ZAP_2.14.0/zap.sh -cmd -version && exit 0
 
 katana install zap
 
-zaproxy -cmd -version
+/opt/samurai/ZAP_2.14.0/zap.sh -cmd -version

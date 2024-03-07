@@ -3,6 +3,7 @@
 set -e
 
 katana install juice-shop
+katana start juice-shop
 
-curl --fail http://localhost:0/
-curl --fail -k https://juice-shop.test:8443/
+curl --fail --retry 5 http://localhost:3000/
+curl --fail --retry 5 -k https://juice-shop.test:8443/

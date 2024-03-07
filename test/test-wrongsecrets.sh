@@ -3,6 +3,7 @@
 set -e
 
 katana install wrongsecrets
+katana start wrongsecrets
 
-curl --fail http://localhost:31500/
-curl --fail -k https://wrongsecrets.test:8443/
+curl --fail --retry 5 http://localhost:31500/
+curl --fail --retry 5 -k https://wrongsecrets.test:8443/

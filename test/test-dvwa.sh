@@ -3,6 +3,7 @@
 set -e
 
 katana install dvwa
+katana start dvwa
 
-curl --fail http://localhost:31000/
-curl --fail -k https://dvwa.test:8443/
+curl --fail --retry 5 http://localhost:31000/
+curl --fail --retry 5 -k https://dvwa.test:8443/

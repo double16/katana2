@@ -3,6 +3,7 @@
 set -e
 
 katana install dvga
+katana start dvga
 
-curl --fail http://localhost:5013/
-curl --fail -k https://dvga.test:8443/
+curl --fail --retry 5 http://localhost:5013/
+curl --fail --retry 5 -k https://dvga.test:8443/

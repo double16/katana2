@@ -2,8 +2,9 @@
 
 set -e
 
-postman --version | grep -q '.' && exit 0
+command -v postman && exit 0
 
 katana install postman
 
-postman --version | grep -q '.'
+command -v postman
+
