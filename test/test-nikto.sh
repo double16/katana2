@@ -2,8 +2,10 @@
 
 set -e
 
-nikto --Version && exit 0
-
 katana install nikto
 
 nikto --Version
+
+katana remove nikto
+
+echo -e "\nPASSED\n"

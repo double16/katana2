@@ -2,8 +2,10 @@
 
 set -e
 
-ffuf -V && exit 0
-
 katana install ffuf
 
 ffuf -V
+
+katana remove ffuf
+
+echo -e "\nPASSED\n"

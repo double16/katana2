@@ -2,9 +2,10 @@
 
 set -e
 
-command -v postman && exit 0
-
 katana install postman
 
 command -v postman
 
+katana remove postman
+
+echo -e "\nPASSED\n"

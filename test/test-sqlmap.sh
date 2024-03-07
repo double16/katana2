@@ -2,8 +2,10 @@
 
 set -e
 
-sqlmap --version && exit 0
-
 katana install sqlmap
 
 sqlmap --version
+
+katana remove sqlmap
+
+echo -e "\nPASSED\n"
