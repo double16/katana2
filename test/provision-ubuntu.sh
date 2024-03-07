@@ -22,7 +22,7 @@ if ! command -v docker; then
   usermod -a -G docker vagrant
 fi
 
-apt-get install -y python3-pip git jq openjdk-17-jdk-headless nginx
+apt-get install -y python3-pip git jq openjdk-17-jdk-headless nginx yarn
 systemctl enable nginx
 systemctl start nginx
 
