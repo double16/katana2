@@ -53,3 +53,8 @@ cat > /usr/bin/katana <<EOF
 sudo python3 ./katanacli.py "\$@"
 EOF
 chmod 0755 /usr/bin/katana
+
+if [[ ! -f /opt/katana/katanacli.py ]] && [[ -f ./katanacli.py ]]; then
+  rmdir /opt/katana
+  ln -sf "$(pwd)" /opt/katana
+fi
